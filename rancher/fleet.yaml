@@ -1,0 +1,18 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: Bundle
+metadata:
+  name: bundle-teste
+spec:
+  resources:
+    - name: suc-k8s.yaml
+      file: rancher/suc-k8s.yaml
+    - name: suc-so.yaml
+      file: rancher/suc-so.yaml
+    - name: plano-so.yaml
+      file: rancher/plano-so.yaml
+    - name: plano-k8s.yaml
+      file: rancher/plano-k8s.yaml
+
+  dependsOn:
+    - name: suc-k8s.yaml
+
