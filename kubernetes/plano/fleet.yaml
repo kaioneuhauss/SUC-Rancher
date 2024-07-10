@@ -1,0 +1,20 @@
+dependsOn:
+  - name: suc-upgrade
+targetCustomizations:
+- name: teste
+  clusterSelector:
+    matchLabels:
+      management.cattle.io/cluster-display-name: teste
+  yaml:
+    overlays:
+    # Refere-se ao diretório overlay
+    - plano-k8s
+
+- name: prod
+  clusterSelector:
+    matchLabels:
+      management.cattle.io/cluster-display-name: prod
+  yaml:
+    overlays:
+    # Refere-se ao diretório overlays
+    - plano-k8s
