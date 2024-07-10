@@ -79,14 +79,14 @@ spec:
   nodeSelector:
     matchExpressions:
     - {key: skip-rke2-update, operator: DoesNotExist}
-  serviceAccountName: system-upgrade
+  serviceAccountName: system-upgrade-so
   secrets:
     - name: rke2-update-script
-      path: /host/run/system-upgrade/secrets/update
+      path: /host/run/system-upgrade-so/secrets/update
   drain:
     force: false
   version: sles-11-07-2024
   upgrade:
     image: registry.suse.com/bci/bci-base:latest
     command: ["chroot", "/host"]
-    args: ["sh", "/run/system-upgrade/secrets/update/rke2-update.sh"]
+    args: ["sh", "/run/system-upgrade-so/secrets/update/rke2-update.sh"]
