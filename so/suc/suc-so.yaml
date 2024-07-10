@@ -1,33 +1,33 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: rke2-update
+  name: rke2-update-so
   labels:
     pod-security.kubernetes.io/enforce: privileged
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: system-upgrade
+  name: system-upgrade-so
   namespace: rke2-update
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name:  system-upgrade
+  name:  system-upgrade-so
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: cluster-admin
 subjects:
 - kind: ServiceAccount
-  name: system-upgrade
+  name: system-upgrade-so
   namespace: rke2-update
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: default-controller-env
+  name: default-controller-env-so
   namespace: rke2-update
 data:
   SYSTEM_UPGRADE_CONTROLLER_DEBUG: "false"
@@ -43,7 +43,7 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: system-upgrade-controller
+  name: system-upgrade-controller-so
   namespace: rke2-update
 spec:
   selector:
@@ -78,7 +78,7 @@ spec:
           operator: "Exists"
           effect: "NoExecute"
       containers:
-        - name: system-upgrade-controller
+        - name: system-upgrade-controller-so
           image: rancher/system-upgrade-controller:v0.11.0
           imagePullPolicy: IfNotPresent
           securityContext:
@@ -93,7 +93,7 @@ spec:
                 - ALL
           envFrom:
             - configMapRef:
-                name: default-controller-env
+                name: default-controller-env-so
           env:
             - name: SYSTEM_UPGRADE_CONTROLLER_NAME
               valueFrom:
