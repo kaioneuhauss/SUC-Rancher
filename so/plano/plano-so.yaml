@@ -48,7 +48,7 @@ stringData:
 apiVersion: upgrade.cattle.io/v1
 kind: Plan
 metadata:
-  name: rke2-update
+  name: rke2-update-so
   namespace: rke2-update
 spec:
   concurrency: 1
