@@ -48,11 +48,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      upgrade.cattle.io/controller: system-upgrade-controller
+      upgrade.cattle.io/controller: system-upgrade-controller-so
   template:
     metadata:
       labels:
-        upgrade.cattle.io/controller: system-upgrade-controller # necessary to avoid drain
+        upgrade.cattle.io/controller: system-upgrade-controller-so # necessary to avoid drain
     spec:
       affinity:
         nodeAffinity:
@@ -61,7 +61,7 @@ spec:
               - matchExpressions:
                   - key: "node-role.kubernetes.io/control-plane"
                     operator: "Exists"
-      serviceAccountName: system-upgrade
+      serviceAccountName: system-upgrade-so
       tolerations:
         - key: "CriticalAddonsOnly"
           operator: "Exists"
