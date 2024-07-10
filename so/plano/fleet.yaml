@@ -1,20 +1,12 @@
 dependsOn:
   - name: suc-so
 targetCustomizations:
-- name: teste
+- name: local
   clusterSelector:
     matchLabels:
-      management.cattle.io/cluster-display-name: teste
+      management.cattle.io/cluster-display-name: local
   yaml:
-    overlays:
+    plano:
     # Refere-se ao diretório overlay
     - plano-so
 
-- name: prod
-  clusterSelector:
-    matchLabels:
-      management.cattle.io/cluster-display-name: prod
-  yaml:
-    overlays:
-    # Refere-se ao diretório overlays
-    - plano-so
