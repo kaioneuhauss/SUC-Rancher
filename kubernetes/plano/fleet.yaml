@@ -1,6 +1,7 @@
 name: plano-k8s-rancher
 dependsOn:
   - name: suc-upgrade-rancher
+targetCustomizations:
 - name: local
   clusterSelector:
     matchLabels:
