@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   labels:
     pod-security.kubernetes.io/enforce: privileged
-  name: system-upgrade
+  name: rke2-update-so
 ---
 apiVersion: v1
 kind: ServiceAccount
