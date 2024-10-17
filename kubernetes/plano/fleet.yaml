@@ -1,3 +1,4 @@
+takeOwnership: true
 name: plano-k8s-rancher
 dependsOn:
   - name: suc-upgrade-rancher

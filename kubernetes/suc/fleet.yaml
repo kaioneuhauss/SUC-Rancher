@@ -1,3 +1,4 @@
+takeOwnership: true
 name: suc-upgrade-rancher
 targetCustomizations:
 - name: local
