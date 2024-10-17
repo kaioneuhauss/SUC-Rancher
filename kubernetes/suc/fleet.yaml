@@ -1,4 +1,4 @@
-name: suc-upgrade
+name: suc-upgrade-rancher
 targetCustomizations:
 - name: local
   clusterSelector:

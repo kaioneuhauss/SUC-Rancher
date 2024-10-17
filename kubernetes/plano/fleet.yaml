@@ -1,5 +1,5 @@
 dependsOn:
-  - name: suc-upgrade
+  - name: suc-upgrade-rancher
 - name: local
   clusterSelector:
     matchLabels:

@@ -1,4 +1,4 @@
-name: suc-so
+name: suc-so-rancher
 targetCustomizations:
 - name: local
   clusterSelector:
