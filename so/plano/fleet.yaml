@@ -1,3 +1,4 @@
+name: plano-so-rancher
 dependsOn:
   - name: suc-so-rancher
 targetCustomizations:
