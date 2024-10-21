@@ -85,7 +85,7 @@ spec:
       path: /host/run/system-upgrade-so/secrets/update
   drain:
     force: false
-  version: sles-11-07-2024
+  version: sles-11-08-2024
   upgrade:
     image: registry.suse.com/bci/bci-base:latest
     command: ["chroot", "/host"]
