@@ -3,7 +3,7 @@ apiVersion: upgrade.cattle.io/v1
 kind: Plan
 metadata:
   name: server-plan
-  namespace: system-upgrade
+  namespace: rke2-update-so
   labels:
     rke2-upgrade: server
 spec:
