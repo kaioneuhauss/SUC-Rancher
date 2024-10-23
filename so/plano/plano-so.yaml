@@ -64,8 +64,10 @@ spec:
     - "-c"
     args:
     - |
+      tempo=120
       zypper -n in iputils
-      sleep 120
+      sleep $tempo
+      echo -e "\e[31m\e[1mO drain do nó será realizado daqui $((tempo / 60)) minutos, aguarde enquanto isso.\e[0m"
       #Adicionar os nomes dos servidores que serão verificados no Cluster.
       for server in 192.168.20.84 192.168.20.85 192.168.20.89; do
         echo -e "\e[1m\e[33mChecando a disponibilidade do servidor "$server"\e[0m"
