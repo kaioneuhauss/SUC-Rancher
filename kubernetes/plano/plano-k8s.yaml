@@ -1,24 +1,18 @@
-# Server plan
 apiVersion: upgrade.cattle.io/v1
 kind: Plan
 metadata:
   name: server-plan
   namespace: cattle-system
-  labels:
-    rke2-upgrade: server
 spec:
   concurrency: 1
+  cordon: true
   nodeSelector:
     matchExpressions:
-            #- {key: rke2-upgrade, operator: Exists}
-            #- {key: rke2-upgrade, operator: NotIn, values: ["disabled", "false"]}
-       # When using k8s version 1.19 or older, swap control-plane with master
-       - {key: node-role.kubernetes.io/control-plane, operator: In, values: ["true"]}
-       - {key: skip-rke2-update, operator: DoesNotExist}
-  serviceAccountName: system-upgrade
-  cordon: true
-#  drain:
-#    force: true
+    - key: node-role.kubernetes.io/control-plane
+      operator: In
+      values:
+      - "true"
+  serviceAccountName: system-upgrade-controller
   upgrade:
     image: rancher/rke2-upgrade
   version: v1.35.6+rke2r1
